@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 # xkcd_daily_email.py
-# Purpose: Email one xkcd comic daily in order, starting with 
-# the last one I read. 
+# Purpose: Email one xkcd comic daily and in order. 
 
-# This helped with getting days:
-# https://dataquest.io/blog/python-datetime-tutorial/
-# This helped with emailing, not encrypting password:
-# https://dev.to/maxhumber/how-to-send-and-schedule-emails-with-python-dnb
+# This helped with getting days sorted out:
+# -> https://dataquest.io/blog/python-datetime-tutorial/
+# This helped with emailing, NOT encrypting password:
+# -> https://dev.to/maxhumber/how-to-send-and-schedule-emails-with-python-dnb
 # This helped with encrypting password:
-# https://alexwlchan.net/2016/11/you-should-use-keyring/
+# -> https://alexwlchan.net/2016/11/you-should-use-keyring/
 
 
 from datetime import datetime, timedelta
