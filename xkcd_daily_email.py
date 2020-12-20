@@ -10,26 +10,20 @@
 # -> https://alexwlchan.net/2016/11/you-should-use-keyring/
 
 
-from datetime import datetime, timedelta
+from datetime import date
 from email.message import EmailMessage
 import smtplib
 import os
 import keyring
 
 # Get number for next comic's URL
-last_read = 341    # Comic number in URL
-now = datetime.now()
-# print ("Today's date: ", str(now))
-
-date_last_read = now - timedelta(days = last_read)
-# print('date_last_read: ', date_last_read)
-
-next_comic = (now - date_last_read).days    # .days converts it to an integer.
-# print(next_comic)
+anchor_date = date(2020, 1, 14)    # Last comic number read using "days ago"
+today = date.today()
+next_comic = (today - anchor_date).days     # .days converts it to an integer.
 
 SENDER = 'pydev714@gmail.com'
 PASSWORD = keyring.get_password('email', 'pydev714@gmail.com')
-
+# PASSWORD = '********'
 
 def send_email(recipient, subject, body):
     msg = EmailMessage()
@@ -45,7 +39,4 @@ def send_email(recipient, subject, body):
 
 send_email("culpower@gmail.com", 
            subject="Daily xkcd",
-           body="Here is the daily xkcd: http://xkcd.com/" + str(next_comic)
-                   )
-
-
+           body="Here is the daily xkcd: http://xkcd.com/" + str(next_comic))
